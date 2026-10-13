@@ -1,0 +1,30 @@
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    namespace Program55
+    {
+    internal class Program
+    {
+        static void Main()
+        {
+            Console.Write("Обороты в минуту (RPM): ");
+            if (int.TryParse(Console.ReadLine(), out int rpm) && rpm >= 0)
+            {
+                string mode;
+                if (rpm == 0) mode = "Заглушен";
+                else if (rpm <= 900) mode = "Холостой ход";
+                else if (rpm <= 3500) mode = "Рабочий";
+                else mode = "Красная зона";
+
+                Console.WriteLine(mode);
+            }
+            else
+            {
+                Console.WriteLine("Ошибка: RPM должно быть неотрицательным.");
+            }
+        }
+    }
+    }
